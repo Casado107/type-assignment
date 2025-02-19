@@ -1,0 +1,31 @@
+ def check_word(e):
+        nonlocal incorrect_count, current_index
+
+        if input_field.value.strip() == selected_words[current_index]:  
+            status_label.value = "Correct!"
+            status_label.color = "green"
+        else:
+            status_label.value = "Incorrect!"
+            status_label.color = "red"
+            incorrect_count += 1
+
+        current_index += 1
+
+        if current_index < len(selected_words):
+            word_label.value = selected_words[current_index]
+            progress_label.value = f"{current_index + 1}/{len(selected_words)}"
+        else:
+            accuracy = ((len(selected_words) - incorrect_count) / len(selected_words)) * 100
+            accuracy_label.value = f"Accuracy: {accuracy:.2f}%"
+            word_label.value = "Game Over!"
+
+        input_field.value = ""
+        page.update()
+        page.focus(input_field)
+
+    input_field.on_submit = check_word
+
+    page.add(word_label, input_field, status_label, progress_label, accuracy_label)
+
+if __name__ == "__main__":
+    ft.app(target=main)
