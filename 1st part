@@ -1,0 +1,14 @@
+import random
+import flet as ft
+
+def get_random_words(word_list, count=15):
+    return random.sample(word_list, count)
+
+def main(page: ft.Page):
+    words = ["soccer", "basketball", "baseball", "ball", "goal", "score", "home run", "run", "base", "goal line", 
+             "bat", "leg", "foot", "arm", "hand", "catcher", "goalie", "striker", "winger", 
+             "defender", "right field", "left field", "centerback" ]
+    
+    selected_words = get_random_words(words, 15)
+    incorrect_count = 0
+    current_index = 0
