@@ -1,0 +1,5 @@
+    word_label = ft.Text(selected_words[current_index], size=24)
+    status_label = ft.Text("", size=24)
+    progress_label = ft.Text(f"0/{len(selected_words)}", size=18)
+    accuracy_label = ft.Text("Accuracy: 100%", size=18)
+    input_field = ft.TextField()
